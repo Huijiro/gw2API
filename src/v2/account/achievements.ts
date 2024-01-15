@@ -1,4 +1,4 @@
-import { fetchAPI } from "../../generics/request.js";
+import { fetchAPI } from "../generics/request.js";
 
 export type AccountAchievements = {
   // The achievement id.
