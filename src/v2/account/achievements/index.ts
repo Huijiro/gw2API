@@ -1,3 +1,5 @@
+import { fetchAPI } from "../../generics/request.js";
+
 export type AccountAchievements = {
   // The achievement id.
   id: number;
@@ -15,15 +17,13 @@ export type AccountAchievements = {
   unlocked?: boolean;
 };
 
-export function getAccountAchievements(authorization: string) {
-  const requestInit: RequestInit = {
+const achievements = async (authorization: string) => {
+  return await fetchAPI<AccountAchievements[]>({
+    endpoint: "/account/achievements",
     headers: {
       Authorization: authorization,
     },
-  };
+  });
+};
 
-  return fetch(
-    "https://api.guildwars2.com/v2/account/achievements",
-    requestInit,
-  );
-}
+export { achievements };

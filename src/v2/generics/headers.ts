@@ -32,3 +32,7 @@ export type SchemaHeaders = {
    */
   "X-Schema-Version": string;
 };
+
+export type APIHeaders = Partial<
+  PagingHeaders & AuthenticationHeader & LocalisationHeaders & SchemaHeaders
+>;

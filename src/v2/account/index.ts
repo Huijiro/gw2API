@@ -1,1 +1,5 @@
-export * from "./achievements/index.js";
+import { achievements } from "./achievements/index.js";
+
+export class Account {
+  achievements = achievements;
+}
