@@ -1,5 +1,5 @@
-const build = () => {
+const finishers = () => {
   throw new Error("Enpoint not implemented");
 };
 
-export { build };
+export { finishers };

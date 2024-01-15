@@ -1,5 +1,5 @@
 const dungeons = () => {
-    throw new Error("Enpoint not implemented");
-  };
+  throw new Error("Enpoint not implemented");
+};
 
-  export { dungeons}
+export { dungeons };

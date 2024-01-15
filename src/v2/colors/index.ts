@@ -1,5 +1,5 @@
 const colors = () => {
-    throw new Error("Enpoint not implemented");
-  };
+  throw new Error("Enpoint not implemented");
+};
 
-  export { colors };
+export { colors };

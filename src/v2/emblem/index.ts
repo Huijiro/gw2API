@@ -1,9 +1,9 @@
-export class Backstory {
-  answers = () => {
+export class Emblem {
+  backgrounds = () => {
     throw new Error("Enpoint not implemented");
   };
 
-  questions = () => {
+  foregrounds = () => {
     throw new Error("Enpoint not implemented");
   };
 }

@@ -1,9 +1,9 @@
-export class Backstory {
-  answers = () => {
+export class Home {
+  cats = () => {
     throw new Error("Enpoint not implemented");
   };
 
-  questions = () => {
+  nodes = () => {
     throw new Error("Enpoint not implemented");
   };
 }

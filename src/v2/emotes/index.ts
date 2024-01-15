@@ -1,5 +1,5 @@
-const build = () => {
+const emotes = () => {
   throw new Error("Enpoint not implemented");
 };
 
-export { build };
+export { emotes };

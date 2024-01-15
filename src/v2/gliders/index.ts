@@ -1,5 +1,5 @@
-const build = () => {
+const gliders = () => {
   throw new Error("Enpoint not implemented");
 };
 
-export { build };
+export { gliders };

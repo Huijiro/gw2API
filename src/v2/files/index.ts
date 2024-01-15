@@ -1,5 +1,5 @@
-const build = () => {
+const files = () => {
   throw new Error("Enpoint not implemented");
 };
 
-export { build };
+export { files };
