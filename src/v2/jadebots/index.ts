@@ -1,5 +1,5 @@
-const items = () => {
+const jadebots = () => {
   throw new Error("Enpoint not implemented");
 };
 
-export { items };
+export { jadebots };

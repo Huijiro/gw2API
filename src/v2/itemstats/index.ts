@@ -1,5 +1,5 @@
-const items = () => {
+const itemstats = () => {
   throw new Error("Enpoint not implemented");
 };
 
-export { items };
+export { itemstats };
