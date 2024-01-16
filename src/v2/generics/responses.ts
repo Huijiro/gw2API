@@ -14,6 +14,7 @@ type APIBadReponse<T, I> = {
 type APIOkRespose<T> = APIGoodResponse<T, 200>;
 type APIPartialReponse<T> = APIGoodResponse<T, 206>;
 
+type APIUnauthorizedResponse<T> = APIBadReponse<T, 401>;
 type APIForbiddenResponse<T> = APIBadReponse<T, 403>;
 type APINotFoundResponse<T> = APIBadReponse<T, 404>;
 
@@ -26,10 +27,15 @@ type APIErrorResponse<
     text: string;
   },
 > =
+  | APIUnauthorizedResponse<T>
   | APIForbiddenResponse<T>
   | APINotFoundResponse<T>
   | APIBadGatewayResponse<T>
   | APIUnavailableResponse<T>
   | APIGatewayTimeoutResponse<T>;
 
-export type { APIErrorResponse, APIOkRespose, APIPartialReponse };
+type APINonErrorReponse<T> = APIOkRespose<T> | APIPartialReponse<T>;
+
+type APIResponse<T> = APIErrorResponse | APINonErrorReponse<T>;
+
+export type { APIErrorResponse, APIOkRespose, APIPartialReponse, APIResponse };

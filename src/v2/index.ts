@@ -103,4 +103,3 @@ export class V2 {
   worlds = worlds;
   wvw: Wvw = new Wvw();
 }
-
