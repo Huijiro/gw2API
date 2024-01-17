@@ -7,7 +7,8 @@
   "scripts": {
     "lint": "eslint .",
     "test": "vitest",
-    "release": "standard-version"
+    "release": "semantic-release",
+    "release:dry": "semantic-release --dry-run"
   },
   "author": "Huijiro",
   "license": "MIT",
@@ -26,7 +27,7 @@
     "husky": "^8.0.3",
     "prettier": "^3.2.2",
     "prettier-plugin-jsdoc": "^1.3.0",
-    "standard-version": "^9.5.0",
+    "semantic-release": "^23.0.0",
     "typescript": "^5.3.3",
     "utility-types": "^3.10.0",
     "vitest": "^1.2.0"
