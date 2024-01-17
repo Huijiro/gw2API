@@ -3,7 +3,7 @@ name: Testing
 on: push
 
 jobs:
-  lint:
+  testing:
     runs-on: ubuntu-latest
 
     steps:
