@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { GW2API } from "../../..";
+import { GW2API } from "../../../src/index.ts";
 import { API_KEY } from "../../utils.ts";
 
 describe("account/achievements", () => {
@@ -7,6 +7,6 @@ describe("account/achievements", () => {
     const client = new GW2API();
     const achievements = await client.V2.account.achievements(API_KEY);
 
-    expect(achievements).instanceOf(Array)
-  })
+    expect(achievements).instanceOf(Array);
+  });
 });

@@ -10,4 +10,4 @@ if (!API_KEY) {
 
 console.warn("Running tests with API key: " + API_KEY);
 
-export { API_KEY }
+export { API_KEY };

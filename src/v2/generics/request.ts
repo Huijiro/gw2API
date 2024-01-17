@@ -14,19 +14,19 @@ import {
 
 type fetchOpts =
   | {
-    endpoint: Endpoints;
-    headers: Required<APIHeaders, "Authorization">;
-  }
+      endpoint: Endpoints;
+      headers: Required<APIHeaders, "Authorization">;
+    }
   | {
-    endpoint: EndpointsWithoutAuth;
-    headers: APIHeaders;
-  };
+      endpoint: EndpointsWithoutAuth;
+      headers: APIHeaders;
+    };
 
 async function fetchAPI<T>({ endpoint, headers }: fetchOpts) {
   const init: RequestInit = {
     headers: Object.entries(headers).map(([key, value]) => {
       if (key == "Authorization") {
-        return [key, "Bearer " + value.toString()]
+        return [key, "Bearer " + value.toString()];
       }
 
       return [key, value.toString()];
