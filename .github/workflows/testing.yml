@@ -19,4 +19,6 @@ jobs:
       run: npm install
 
     - name: Run Vitest
+      env:
+        TEST_API_KEY: ${{ secrets.TEST_API_KEY }}
       run: npm run test
