@@ -124,7 +124,7 @@ The object has been typed in a way that if you want to implement a endpoint that
 
 ## Testing
 
-Testing should be done in the \_\_test\_\_ folder inside the src, the project is setup at this moment to only compile the actual API and ignore the test folder for compilation usage.
+Testing should be done in the test folder, the project is setup at this moment to only compile the actual API and ignore the test folder for compilation usage.
 
 The tests run using the provided API key on a enviroment variable, use your own for local tests. (Check the [example .env](./example.env))
 
