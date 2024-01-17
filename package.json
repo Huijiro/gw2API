@@ -8,7 +8,8 @@
     "lint": "eslint .",
     "test": "vitest",
     "release": "semantic-release",
-    "release:dry": "semantic-release --dry-run"
+    "release:dry": "semantic-release --dry-run",
+    "build": "tsc"
   },
   "author": "Huijiro",
   "license": "MIT",
