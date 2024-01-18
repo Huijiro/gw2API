@@ -5,10 +5,14 @@ import { API_KEY } from "../../utils.ts";
 describe("account/bank", () => {
   let client: GW2API;
   let bank: Awaited<ReturnType<typeof client.V2.account.bank>>;
+
   beforeEach(async () => {
     client = new GW2API();
-    bank = await client.V2.account.bank(API_KEY);
+    bank = await client.V2.account.bank({
+      access_token: API_KEY,
+    });
   });
+
   test("Request works", () => {
     expect(bank).toBeDefined();
   });

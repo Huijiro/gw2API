@@ -68,7 +68,7 @@ If the route is the final endpoint it should be implemented on it's own file wit
 ```typescript
 import { fetchAPI } from "../generics/request.js";
 
-export type AccountAchievements = {
+type AccountAchievements = {
   // The achievement id.
   id: number;
   // This attribute contains an array of numbers, giving more specific information on the progress for the achievement. The meaning of each value varies with each achievement. Bits start at zero. If an achievement is done, the in-progress bits are not displayed.
@@ -85,12 +85,15 @@ export type AccountAchievements = {
   unlocked?: boolean;
 };
 
-const achievements = async (authorization: string) => {
+const achievements = async (params: {
+  access_token: string;
+  page?: number;
+  page_size?: number;
+  v?: Date;
+}) => {
   return await fetchAPI<AccountAchievements[]>({
     endpoint: "/account/achievements",
-    headers: {
-      Authorization: authorization,
-    },
+    params,
   });
 };
 

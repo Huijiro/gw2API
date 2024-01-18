@@ -1,5 +1,4 @@
 import { Endpoints, EndpointsWithoutAuth } from "./endpoints.js";
-import { APIHeaders } from "./headers.js";
 import { Required } from "utility-types";
 import { APIResponse } from "./responses.js";
 import {
@@ -11,32 +10,64 @@ import {
   APIUnavailableError,
   APIUnknownError,
 } from "./errors.js";
+import { APIParams } from "./params.js";
 
 type fetchOpts =
   | {
       endpoint: Endpoints;
-      headers: Required<APIHeaders, "Authorization">;
+      params: Required<APIParams, "access_token">;
     }
   | {
       endpoint: EndpointsWithoutAuth;
-      headers: APIHeaders;
+      params: APIParams;
     };
 
-async function fetchAPI<T>({ endpoint, headers }: fetchOpts) {
+async function fetchAPI<T>({ endpoint, params }: fetchOpts) {
   const init: RequestInit = {
-    headers: Object.entries(headers).map(([key, value]) => {
-      if (key == "Authorization") {
-        return [key, "Bearer " + value.toString()];
-      }
-
-      return [key, value.toString()];
-    }),
+    headers: {
+      Authorization: "Bearer " + params.access_token,
+    },
   };
 
-  const response = (await fetch(
-    "https://api.guildwars2.com/v2" + endpoint,
-    init,
-  )) as APIResponse<T>;
+  const queryParams: URLSearchParams = new URLSearchParams({});
+
+  if (params.id) {
+    if (typeof params.id == "number") {
+      queryParams.append("id", params.id.toString());
+    } else {
+      queryParams.append("id", params.id.join(","));
+    }
+  }
+
+  if (params.ids) {
+    if (params.ids == "all") {
+      queryParams.append("ids", "all");
+    } else {
+      queryParams.append("ids", params.ids.join(","));
+    }
+  }
+
+  if (params.page) {
+    queryParams.append("page", params.page.toString());
+  }
+
+  if (params.page_size) {
+    queryParams.append("page_size", params.page_size.toString());
+  }
+
+  if (params.lang) {
+    queryParams.append("lang", params.lang);
+  }
+
+  if (params.v) {
+    queryParams.append("v", params.v.toISOString());
+  }
+
+  const url = new URL(
+    "https://api.guildwars2.com/v2" + endpoint + "?" + queryParams.toString(),
+  );
+
+  const response = (await fetch(url, init)) as APIResponse<T>;
 
   if (!response.ok) {
     const body = await response.json();

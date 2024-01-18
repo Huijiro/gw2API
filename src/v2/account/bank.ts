@@ -41,12 +41,15 @@ type AccountBank = {
   };
 };
 
-const bank = async (authorization: string) => {
+const bank = async (params: {
+  access_token: string;
+  page?: number;
+  page_size?: number;
+  v?: Date;
+}) => {
   return await fetchAPI<AccountBank[]>({
     endpoint: "/account/bank",
-    headers: {
-      Authorization: authorization,
-    },
+    params,
   });
 };
 

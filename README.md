@@ -20,8 +20,8 @@ If you like the idea of this project and want to help with it, please see [CONTR
 | ---------- | ----------- |
 | /v2/account | ❌ |
 | /v2/account/achievements | ✔️ |
-| /v2/account/bank | ❌ |
-| /v2/account/buildstorage | ❌ |
+| /v2/account/bank | ✔️ |
+| /v2/account/buildstorage | ✔️ |
 | /v2/account/dailycrafting | ❌ |
 | /v2/account/dungeons | ❌ |
 | /v2/account/dyes | ❌ |
