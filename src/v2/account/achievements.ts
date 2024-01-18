@@ -17,12 +17,15 @@ type AccountAchievements = {
   unlocked?: boolean;
 };
 
-const achievements = async (authorization: string) => {
+const achievements = async (params: {
+  access_token: string;
+  page?: number;
+  page_size?: number;
+  v?: Date;
+}) => {
   return await fetchAPI<AccountAchievements[]>({
     endpoint: "/account/achievements",
-    params: {
-      access_token: authorization,
-    },
+    params,
   });
 };
 

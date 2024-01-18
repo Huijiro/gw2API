@@ -29,12 +29,15 @@ type AccountBuildStorage = {
   pets?: Pets;
 };
 
-const buildstorage = async (authorization: string) => {
+const buildstorage = async (params: {
+  access_token: string;
+  page?: number;
+  page_size?: number;
+  v?: Date;
+}) => {
   return await fetchAPI<AccountBuildStorage[]>({
     endpoint: "/account/bank",
-    params: {
-      access_token: authorization,
-    },
+    params,
   });
 };
 
