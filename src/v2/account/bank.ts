@@ -44,8 +44,8 @@ type AccountBank = {
 const bank = async (authorization: string) => {
   return await fetchAPI<AccountBank[]>({
     endpoint: "/account/bank",
-    headers: {
-      Authorization: authorization,
+    params: {
+      access_token: authorization,
     },
   });
 };

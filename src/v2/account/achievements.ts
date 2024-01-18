@@ -20,8 +20,8 @@ type AccountAchievements = {
 const achievements = async (authorization: string) => {
   return await fetchAPI<AccountAchievements[]>({
     endpoint: "/account/achievements",
-    headers: {
-      Authorization: authorization,
+    params: {
+      access_token: authorization,
     },
   });
 };

@@ -32,8 +32,8 @@ type AccountBuildStorage = {
 const buildstorage = async (authorization: string) => {
   return await fetchAPI<AccountBuildStorage[]>({
     endpoint: "/account/bank",
-    headers: {
-      Authorization: authorization,
+    params: {
+      access_token: authorization,
     },
   });
 };
