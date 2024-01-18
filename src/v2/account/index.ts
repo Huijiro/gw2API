@@ -1,11 +1,10 @@
 import { achievements } from "./achievements.js";
+import { bank } from "./bank.js";
 
 export class Account {
   achievements = achievements;
 
-  bank = () => {
-    throw new Error("Enpoint not implemented");
-  };
+  bank = bank;
 
   buildstorage = () => {
     throw new Error("Enpoint not implemented");

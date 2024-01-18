@@ -1,6 +1,6 @@
 import { fetchAPI } from "../generics/request.js";
 
-export type AccountAchievements = {
+type AccountAchievements = {
   // The achievement id.
   id: number;
   // This attribute contains an array of numbers, giving more specific information on the progress for the achievement. The meaning of each value varies with each achievement. Bits start at zero. If an achievement is done, the in-progress bits are not displayed.
